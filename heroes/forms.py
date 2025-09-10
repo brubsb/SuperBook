@@ -9,4 +9,4 @@ class ContatoForm(forms.Form):
 class HeroForm(forms.ModelForm):
     class Meta:
         model = Hero
-        fields = ['codinome', 'nome_real', 'poder_principal', 'cidade', 'historia', 'email_contato']
+        fields = ['codinome', 'nome_real', 'poder_principal', 'cidade', 'historia']
