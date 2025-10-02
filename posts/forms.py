@@ -4,7 +4,7 @@ from .models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['mensagem']
+        fields = ['autor', 'mensagem']
         widgets = {
             'mensagem': forms.Textarea(attrs={
                 'class': 'form-control', # Classe principal do Bootstrap

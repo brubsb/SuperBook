@@ -10,7 +10,6 @@ class PostListView(ListView):
     template_name = "posts/lista_posts.html"
     context_object_name = "posts"
 
-
 class PostCreateView(CreateView):
     model = Post
     form_class = PostForm

@@ -1,21 +1,13 @@
-from django.contrib import admin
-from .models import Villain
+from django.db import models
 
-@admin.register(Villain)
-class VillainAdmin(admin.ModelAdmin):
-    list_display = ['codinome', 'nome_real', 'poder_principal', 'cidade', 'email_contato', 'criado_em']
-    list_filter = ['cidade']
-    search_fields = ['codinome', 'nome_real', 'cidade', 'email_contato']
+class Villains(models.Model):
+    codinome = models.CharField(max_length=60, unique=True)
+    nome_real = models.CharField(max_length=100, blank=True, null=True)
+    poder_principal = models.CharField(max_length=100, blank=True, null=True)
+    cidade = models.CharField(max_length=100, blank=True, null=True)
+    historia = models.TextField(blank=True, null=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
 
-    fieldsets = (
-        ('Identidade Secreta', {
-            'fields': ('codinome', 'nome_real', 'email_contato')
-        }),
-        ('Informações Gerais', {
-            'fields': ('poder_principal', 'cidade', 'historia')
-        }),
-        ('Dados de Registro', {
-            'fields': ('criado_em',)
-        }),
-    )
-    readonly_fields = ['criado_em']
+    def __str__(self):
+        return self.codinome
+
